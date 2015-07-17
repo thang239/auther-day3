@@ -1,0 +1,14 @@
+.story-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+select:invalid {
+  color: #aaa; }
+  select:invalid:hover {
+    color: #bbb; }
+
+select {
+  border-bottom: 1px dashed #000; }
+  select:focus {
+    border-color: transparent; }

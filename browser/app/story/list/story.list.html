@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="list-group-item story-item">
+		<span>
+			<h4><span contenteditable ng-model="searchStory.title" placeholder="Story Title" class="form-like"></span></h4>
+			<p>by <span contenteditable ng-model="searchStory.author.name" placeholder="Jean Doe" class="form-like"></span></p>
+		</span>
+		<span class="glyphicon glyphicon-search"></span>
+	</div>
+	<br><br>
+	<ul class="list-group">
+		<li ng-show="isAdmin" class="list-group-item story-item">
+			<span>
+				<h4><span contenteditable ng-model="newStory.title" placeholder="Story Title" class="form-like"></span></h4>
+				<p>by <select ng-options="user as user.name for user in users track by user._id" ng-model="newStory.author" required>
+					<option value='' disabled>(select an author)</option>
+				</select></p>
+			</span>
+			<button class="btn btn-warning pull-right btn-xs" ng-click="addStory()">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+		</li>
+		<li ng-repeat="story in stories | filter:searchStory" class="list-group-item story-item">
+			<span>
+				<h4><a ui-sref="story({id: story._id})">{{ story.title }}</a></h4>
+				<p>by <a ui-sref="user({id: story.author._id})">{{ story.author.name }}</a></p>
+			</span>
+			<button ng-show="isAdmin || story.author._id == currentUser._id" class="btn btn-default pull-right btn-xs remove-story" ng-click="removeStory(story)">
+				<span class="glyphicon glyphicon-remove"></span>
+			</button>
+		</li>
+	</ul>
+</div>

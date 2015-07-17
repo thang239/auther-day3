@@ -1,0 +1,19 @@
+.story-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+select:invalid {
+	color: #aaa;
+	&:hover {
+		color: #bbb;
+	}
+}
+
+select {
+	border-bottom: 1px dashed #000;
+	&:focus {
+		border-color: transparent;
+	}	
+}

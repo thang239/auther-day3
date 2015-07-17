@@ -1,0 +1,21 @@
+user-item {
+	* {
+		white-space: nowrap;
+	}
+
+	.icon-container {
+		.glyphicon {
+			font-size: 40px;
+			padding: 20px;
+			border-radius: 50%;
+		}
+
+		.glyphicon.clickable {
+			background-color: #f0ad4e;
+			color: #fff;
+			&:hover {
+				background-color: darken(#f0ad4e, 5%);
+			}
+		}
+	}
+}

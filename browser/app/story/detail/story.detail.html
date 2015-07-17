@@ -1,0 +1,14 @@
+<div class="container story-container">
+	<p class="large-font">
+		<span contenteditable="{{ isAdminOrAuthor }}" class="large-font form-like" ng-model="story.title" ng-change="updateTitle()"></span>
+		<span class="muted">by</span>
+		<select ng-options="user as user.name for user in users track by user._id" ng-model="selected" ng-change="updateAuthor()" ng-disabled="!isAdminOrAuthor"></select>
+	</p>
+	<br>
+	<p contenteditable="{{ isAdminOrAuthor }}"
+		ng-repeat="paragraph in story.paragraphs"
+		ng-change="updateParagraph($index, paragraph)"
+		ng-model="paragraph"
+		placeholder="(text here)"></p>
+	<button ng-show="isAdminOrAuthor" class="btn btn-default" ng-click="addParagraph()">add paragraph</button>
+</div>

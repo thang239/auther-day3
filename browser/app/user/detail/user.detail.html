@@ -1,0 +1,28 @@
+<div class="container">
+	<user-item model="user" class="list-group-item min-content"></user-item>
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<h2 class="panel-title large-font">stories</h2>
+		</div>
+		<ul class="list-group">
+			<p ng-show="isLoggedIn" class="list-group-item">
+				<span>
+					<span contenteditable placeholder="Story Title" class="form-like" ng-model="newStory.title"></span>
+					<button class="btn btn-warning pull-right btn-xs" ng-click="addStory()">
+						<span class="glyphicon glyphicon-plus"></span>
+					</button>
+				</span>
+			</p>
+			<p ng-repeat="story in user.stories" class="list-group-item">
+				<span>
+					<a ui-sref="story({id: story._id})" class="clickable story-item-title">
+						{{ story.title }}
+					</a>
+					<button ng-show="isLoggedIn" class="btn btn-default pull-right btn-xs remove-story" ng-click="removeStory(story)">
+						<span class="glyphicon glyphicon-remove"></span>
+					</button>
+				</span>
+			</p>
+		</ul>
+	</div>
+</div>
